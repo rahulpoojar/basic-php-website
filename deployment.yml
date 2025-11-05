@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-app
+  namespace: phplabapp
+  labels:
+    app: phpapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: phpapp
+  template:
+    metadata:
+      labels:
+        app: phpapp
+    spec:
+      containers:
+      - name: phpappcontainer
+        image: rahulpoojar/devlabexam1:latest
+        ports:
+        - containerPort: 80
+        
